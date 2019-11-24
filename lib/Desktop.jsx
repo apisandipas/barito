@@ -1,24 +1,27 @@
+import { styled } from 'uebersicht'
 import styles from './styles.jsx'
 
-const containerStyle = {
-  display: 'grid',
-  gridAutoFlow: 'column',
-  gridGap: '12px'
-}
+const DesktopContainer = styled('div')`
+  display: flex;
+`
 
-const desktopStyle = {
-  width: '2ch'
-}
-
-const iconMap = ['', '', '']
-
-const renderSpace = (index, active, windows) => {
-  let contentStyle = JSON.parse(JSON.stringify(desktopStyle))
-  let hasWindows = windows > 0
-  if (index == active) {
-    contentStyle.color = styles.colors.fg
+const Desktop = styled('div')`
+  color: ${props => (props.active ? styles.colors.fg : styles.colors.dim)};
+  width: 2.2em;
+  & + div {
+    margin-left: 1rem;
   }
-  return <div style={contentStyle}>{iconMap[index - 1] || index}</div>
+`
+
+const iconMap = [' ', '', '', '', ' ']
+
+const renderSpace = (index, active) => {
+  const icon = iconMap[index - 1] ? iconMap[index - 1] : ''
+  return (
+    <Desktop active={index == active} key={index}>
+      {index + ':' + icon}
+    </Desktop>
+  )
 }
 
 const render = ({ output }) => {
@@ -27,12 +30,12 @@ const render = ({ output }) => {
   const { spaces, app, type } = output
 
   return (
-    <div style={containerStyle}>
+    <DesktopContainer>
       {spaces.reduce((acc, space) => {
         acc.push(renderSpace(space.index, output.active, space.windows))
         return acc
       }, [])}
-    </div>
+    </DesktopContainer>
   )
 }
 
