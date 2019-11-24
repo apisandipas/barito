@@ -13,7 +13,7 @@ const Desktop = styled.div`
   }
 `
 
-const iconMap = [' ', '', '', '', ' ']
+const iconMap = [' ', '', '', '', ' ']
 
 const renderSpace = (index, active) => {
   const icon = iconMap[index - 1] ? iconMap[index - 1] : ''
