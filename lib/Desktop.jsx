@@ -1,11 +1,11 @@
 import { styled } from 'uebersicht'
 import styles from './styles.jsx'
 
-const DesktopContainer = styled('div')`
+const DesktopContainer = styled.div`
   display: flex;
 `
 
-const Desktop = styled('div')`
+const Desktop = styled.div`
   color: ${props => (props.active ? styles.colors.fg : styles.colors.dim)};
   width: 2.2em;
   & + div {
