@@ -10,32 +10,30 @@ const desktopStyle = {
   width: '2ch'
 }
 
+const iconMap = ['', '', '']
+
 const renderSpace = (index, active, windows) => {
   let contentStyle = JSON.parse(JSON.stringify(desktopStyle))
   let hasWindows = windows > 0
   if (index == active) {
     contentStyle.color = styles.colors.fg
   }
-  return (
-    <div style={contentStyle}>
-      {index}
-      {hasWindows ? '°' : ' '}
-    </div>
-  )
+  return <div style={contentStyle}>{iconMap[index - 1] || index}</div>
 }
 
 const render = ({ output }) => {
-  if (typeof output === 'undefined') return null
+  if (!output) return null
 
-  // const app = output.app;
-  // const type = output.type;
-  const spaces = []
+  const { spaces, app, type } = output
 
-  output.spaces.forEach(function(space) {
-    spaces.push(renderSpace(space.index, output.active, space.windows))
-  })
-
-  return <div style={containerStyle}>{spaces}</div>
+  return (
+    <div style={containerStyle}>
+      {spaces.reduce((acc, space) => {
+        acc.push(renderSpace(space.index, output.active, space.windows))
+        return acc
+      }, [])}
+    </div>
+  )
 }
 
 export default render

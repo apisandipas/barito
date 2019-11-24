@@ -1,6 +1,6 @@
 export default {
   colors: {
-    fg: '#bcbcbc',
+    fg: '#fff',
     dim: '#6c6c6c',
     bg: '#1c1c1c',
     red: '#ff8700'

@@ -113,7 +113,7 @@ fi
 
 export LC_TIME="en_US.UTF-8"
 TIME=$(date +"%H:%M")
-DATE=$(date +"%a %d/%m")
+DATE=$(date +"%a %Y/%m/%d")
 
 BATTERY_PERCENTAGE=$(pmset -g batt | egrep '([0-9]+\%).*' -o --colour=auto | cut -f1 -d'%')
 BATTERY_STATUS=$(pmset -g batt | grep "'.*'" | sed "s/'//g" | cut -c 18-19)
@@ -136,26 +136,26 @@ DND=$(defaults -currentHost read com.apple.notificationcenterui doNotDisturb)
 echo $(cat <<-EOF
 {
     "datetime": {
-        "time": "$TIME",
-        "date": "$DATE"
+      "time": "$TIME",
+      "date": "$DATE"
     },
     "battery": {
-        "percentage": $BATTERY_PERCENTAGE,
-        "charging": $BATTERY_CHARGING,
-		"remaining": "$BATTERY_REMAINING"
+      "percentage": $BATTERY_PERCENTAGE,
+      "charging": $BATTERY_CHARGING,
+      "remaining": "$BATTERY_REMAINING"
     },
     "cpu": {
-        "loadAverage": $LOAD_AVERAGE
+      "loadAverage": $LOAD_AVERAGE
     },
     "wifi": {
 		"status": "$WIFI_STATUS",
-        "ssid": "$WIFI_SSID"
+      "ssid": "$WIFI_SSID"
     },
-	"netstats": {
-		"kbin": "$kbin",
-		"kbout": "$kbout"
-	},
-	"dnd": $DND
+    "netstats": {
+      "kbin": "$kbin",
+      "kbout": "$kbout"
+    },
+    "dnd": $DND
 }
 EOF
 )

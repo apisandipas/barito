@@ -19,7 +19,7 @@ const style = {
   overflow: 'hidden',
   right: '0px',
   top: '0px',
-  color: styles.colors.dim,
+  color: styles.colors,
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
