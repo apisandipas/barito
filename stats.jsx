@@ -1,14 +1,14 @@
-import DateTime from './lib/DateTime.jsx'
-import Battery from './lib/Battery.jsx'
-// import Cpu from './lib/Cpu.jsx'
-// import Wifi from './lib/Wifi.jsx'
-// import Dnd from './lib/Dnd.jsx'
-// import Netstats from './lib/Netstats.jsx'
-import Error from './lib/Error.jsx'
-import parse from './lib/parse.jsx'
-import styles from './lib/styles.jsx'
+import DateTime from './lib/DateTime.jsx';
+import Battery from './lib/Battery.jsx';
+// import Cpu from './lib/Cpu.jsx';
+// import Wifi from './lib/Wifi.jsx';
+// import Dnd from './lib/Dnd.jsx';
+// import Netstats from './lib/Netstats.jsx';
+import Error from './lib/Error.jsx';
+import parse from './lib/parse.jsx';
+import styles from './lib/styles.jsx';
 
-import widget from './widget.json'
+import widget from './widget.json';
 
 const style = {
   display: 'grid',
@@ -24,31 +24,31 @@ const style = {
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
   fontWeight: styles.fontWeight
-}
+};
 
-export const refreshFrequency = 10000
+export const refreshFrequency = 10000;
 
-export const command = `./${widget.name}/scripts/stats.sh`
+export const command = `./${widget.name}/scripts/stats.sh`;
 
 export const render = ({ output }) => {
-  const data = parse(output)
+  const data = parse(output);
   if (typeof data === 'undefined') {
     return (
       <div style={style}>
         <Error msg='Error: unknown script output' side='right' />
       </div>
-    )
+    );
   }
   return (
     <div style={style}>
-      {/* <Netstats output={data.netstats} /> */}
-      {/* <Dnd output={data.dnd} /> */}
-      {/* <Wifi output={data.wifi} /> */}
-      {/* <Cpu output={data.cpu} /> */}
+      {/* <Netstats output={data.netstats} />
+      <Dnd output={data.dnd} />
+      <Wifi output={data.wifi} />
+      <Cpu output={data.cpu} /> */}
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
     </div>
-  )
-}
+  );
+};
 
-export default null
+export default null;

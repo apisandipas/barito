@@ -13,10 +13,10 @@ const Desktop = styled.div`
   }
 `;
 
-const iconMap = [' ', '', '', '', ' ', ' ', ' ', ' '];
+const iconMap = [' ', '', '', '', ' '];
 
 const renderSpace = (index, active) => {
-  const icon = iconMap[index - 1] ? iconMap[index - 1] : '';
+  const icon = iconMap[index - 1] ? iconMap[index - 1] : ' ';
   return (
     <Desktop active={index == active} key={index}>
       {index + ':' + icon}

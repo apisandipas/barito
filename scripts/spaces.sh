@@ -8,7 +8,8 @@ if ! [ -x "$(command -v yabai)" ]; then
   exit 1
 fi
 
-SPACES=$(yabai -m query --spaces --display 2)
+SPACE=$1
+SPACES=$(yabai -m query --spaces --display $SPACE)
 ACTIVE=$(yabai -m query --spaces --space | jq .index)
 APP_NAME=$(yabai -m query --windows --window | jq .app)
 
