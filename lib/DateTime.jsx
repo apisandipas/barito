@@ -4,7 +4,7 @@ const render = ({ output }) => {
 
   return (
     <div>
-       &nbsp;{date}  {time}
+       &nbsp;{date}  {time}
     </div>
   )
 }

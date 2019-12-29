@@ -135,27 +135,27 @@ DND=$(defaults -currentHost read com.apple.notificationcenterui doNotDisturb)
 
 echo $(cat <<-EOF
 {
-    "datetime": {
-      "time": "$TIME",
-      "date": "$DATE"
-    },
-    "battery": {
-      "percentage": $BATTERY_PERCENTAGE,
-      "charging": $BATTERY_CHARGING,
-      "remaining": "$BATTERY_REMAINING"
-    },
-    "cpu": {
-      "loadAverage": $LOAD_AVERAGE
-    },
-    "wifi": {
-		"status": "$WIFI_STATUS",
-      "ssid": "$WIFI_SSID"
-    },
-    "netstats": {
-      "kbin": "$kbin",
-      "kbout": "$kbout"
-    },
-    "dnd": $DND
+  "datetime": {
+    "time": "$TIME",
+    "date": "$DATE"
+  },
+  "battery": {
+    "percentage": $BATTERY_PERCENTAGE,
+    "charging": $BATTERY_CHARGING,
+    "remaining": "$BATTERY_REMAINING"
+  },
+  "cpu": {
+    "loadAverage": $LOAD_AVERAGE
+  },
+  "wifi": {
+    "status": "$WIFI_STATUS",
+    "ssid": "$WIFI_SSID"
+  },
+  "netstats": {
+    "kbin": "$kbin",
+    "kbout": "$kbout"
+  },
+  "dnd": $DND
 }
 EOF
 )

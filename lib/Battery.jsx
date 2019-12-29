@@ -2,16 +2,14 @@ import styles from './styles.jsx'
 
 const getChargingLevelIcon = percentage => {
   switch (true) {
-    case percentage <= 20:
-      return ' '
-    case percentage <= 40:
-      return ' '
-    case percentage <= 60:
-      return ' '
-    case percentage <= 80:
-      return ' '
+    case percentage <= 25:
+      return ' '
+    case percentage <= 50:
+      return ' '
+    case percentage <= 75:
+      return ' '
     case percentage <= 100:
-      return ' '
+      return ' '
   }
 }
 
@@ -26,7 +24,7 @@ const render = ({ output }) => {
             : null
         }
       >
-        <span>{charging ? ' ' : getChargingLevelIcon(percentage)}</span>
+        <span>{charging ? ' ' : getChargingLevelIcon(percentage)}</span>&nbsp;
         <span>{percentage}%</span>
       </div>
     </div>
