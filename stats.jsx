@@ -11,15 +11,13 @@ import styles from './lib/styles.jsx';
 import widget from './widget.json';
 
 const style = {
-  display: 'grid',
+  display: 'flex',
   padding: '0 12px',
-  gridAutoFlow: 'column',
-  gridGap: '16px',
   position: 'fixed',
   overflow: 'hidden',
-  right: '0px',
-  top: '0px',
-  color: styles.colors.fg,
+  right: '1.375em',
+  bottom: '1em',
+  height: '40px',
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
@@ -45,6 +43,7 @@ export const render = ({ output }) => {
       <Dnd output={data.dnd} />
       <Wifi output={data.wifi} />
       <Cpu output={data.cpu} /> */}
+
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
     </div>

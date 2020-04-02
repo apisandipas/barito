@@ -5,24 +5,20 @@ import styles from './styles.jsx';
 import widget from '../widget.json';
 
 const style = {
-  padding: '0 12px',
   display: 'grid',
   gridAutoFlow: 'column',
   gridGap: '16px',
   position: 'fixed',
   overflow: 'hidden',
-  left: '0',
-  top: '0px',
+  left: '1.375rem',
+  bottom: '1em',
   fontFamily: styles.fontFamily,
   lineHeight: styles.lineHeight,
   fontWeight: styles.fontWeight,
   fontSize: styles.fontSize,
-  color: styles.colors.dim
+  color: styles.colors.dim,
+  padding: '0.25rem 0'
 };
-
-// export const refreshFrequency = 500;
-
-// export const command = `./${widget.name}/scripts/spaces-primary.sh`;
 
 const Spaces = ({ output }) => {
   const data = parse(output);

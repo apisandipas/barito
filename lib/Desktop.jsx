@@ -6,20 +6,25 @@ const DesktopContainer = styled.div`
 `;
 
 const Desktop = styled.div`
-  color: ${props => (props.active ? styles.colors.fg : styles.colors.dim)};
-  width: 2.2em;
-  & + div {
-    margin-left: 1rem;
-  }
+  box-sizing: border-box;
+  color: ${props => (props.active ? styles.colors.fgActive : styles.colors.fg)};
+  background-color: ${props =>
+    props.active ? styles.colors.bgActive : styles.colors.bg};
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const iconMap = [' ', '', '', '', ' '];
 
 const renderSpace = (index, active) => {
-  const icon = iconMap[index - 1] ? iconMap[index - 1] : ' ';
+  const icon = iconMap[index - 1] ? iconMap[index - 1] : index;
   return (
     <Desktop active={index == active} key={index}>
-      {index + ':' + icon}
+      {icon}
     </Desktop>
   );
 };
